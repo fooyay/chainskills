@@ -32,4 +32,3 @@ This box has been based from [pet-shop-box](https://github.com/truffle-box/pet-s
     // Serves the front-end on http://localhost:3000
     npm run dev
     ```
-# chainskills
