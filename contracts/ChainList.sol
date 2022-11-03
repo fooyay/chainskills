@@ -31,16 +31,19 @@ contract ChainList {
     uint256 _price
   );
 
+  // modifiers
+  modifier onlyOwner() {
+    require(msg.sender == owner);
+    _;
+  }
+
   // constructor
   function ChainList() public {
     owner = msg.sender;
   }
 
   // deactivate the contract
-  function kill() public {
-    // only allow the contract owner
-    require(msg.sender == owner);
-
+  function kill() public onlyOwner {
     selfdestruct(owner);
   }
 
@@ -61,16 +64,6 @@ contract ChainList {
 
     LogSellArticle(articleCounter, msg.sender, _name, _price);
   }
-
-  /* function getArticle() public view returns (
-    address _seller,
-    address _buyer,
-    string _name,
-    string _description,
-    uint256 _price
-  ) {
-    return(seller, buyer, name, description, price);
-  } */
 
   // fetch the number of articles in the contract
   function getNumberOfArticles() public view returns (uint) {
