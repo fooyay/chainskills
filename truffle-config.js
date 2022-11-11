@@ -8,8 +8,8 @@ module.exports = {
           ganache: {
                host: "localhost",
                port: 7545,
-               network_id: "*", // Match any network id
-               gas: 47000000
+               network_id: "*" // Match any network id
+               // gas: 47000000
           },
           chainskills: {
             host: "localhost",
